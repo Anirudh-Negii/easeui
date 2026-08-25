@@ -1,13 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import { cloneElement, useEffect, useId, useRef, useState } from "react";
+import type { ReactNode, ReactElement, HTMLAttributes } from "react";
 import { cn } from "@/libs/utils";
 
-interface TooltipProps {
-  content: React.ReactNode;
-  children: React.ReactElement;
+export interface TooltipProps {
+  content: ReactNode;
+  children: ReactElement<HTMLAttributes<HTMLElement>>;
   side?: "top" | "bottom" | "left" | "right";
   delay?: number;
   className?: string;
 }
+
+const positionClasses = {
+  top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
+  bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
+  left: "right-full top-1/2 -translate-y-1/2 mr-2",
+  right: "left-full top-1/2 -translate-y-1/2 ml-2",
+};
 
 const Tooltip = ({
   content,
@@ -24,18 +32,12 @@ const Tooltip = ({
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
+        timerRef.current = null;
       }
     };
   }, []);
 
-  const tooltipId = React.useId();
-
-  const positionClasses = {
-    top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
-    bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
-    left: "right-full top-1/2 -translate-y-1/2 mr-2",
-    right: "left-full top-1/2 -translate-y-1/2 ml-2",
-  };
+  const tooltipId = useId();
 
   return (
     <div
@@ -60,7 +62,7 @@ const Tooltip = ({
       onFocus={() => setIsVisible(true)}
       onBlur={() => setIsVisible(false)}
     >
-      {React.cloneElement(children, {
+      {cloneElement(children, {
         "aria-describedby": isVisible ? tooltipId : undefined,
       })}
 
