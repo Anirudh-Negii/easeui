@@ -19,28 +19,6 @@ const Carousel = ({
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const slides = Children.toArray(children);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowLeft") {
-        previousSlide();
-      }
-
-      if (event.key === "ArrowRight") {
-        nextSlide();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [slides.length]);
-
-  if (slides.length === 0) {
-    return null;
-  }
-
   const startAutoPlay = () => {
     if (!autoPlay || slides.length <= 1) return;
 
@@ -77,7 +55,7 @@ const Carousel = ({
     if (!autoPlay || slides.length <= 1) return;
 
     autoPlayRef.current = setInterval(() => {
-      nextSlide();
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, autoPlayInterval);
 
     return () => {
@@ -96,6 +74,10 @@ const Carousel = ({
       }
     };
   }, []);
+
+  if (slides.length === 0) {
+    return null;
+  }
 
   return (
     <div

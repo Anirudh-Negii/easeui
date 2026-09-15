@@ -17,7 +17,7 @@ const ComponentDemo = ({ children, code }: ComponentDemoProps) => {
         <span className="text-sm font-medium text-gray-700">Preview</span>
         <button
           onClick={() => setIsCodeVisible(!isCodeVisible)}
-          className="flex items-center gap-1 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded transition-colors"
+          className="flex items-center gap-1 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded transition-colors cursor-pointer"
         >
           <Code size={14} />
           {isCodeVisible ? "Hide Code" : "View Code"}

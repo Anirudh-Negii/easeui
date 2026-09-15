@@ -1,5 +1,6 @@
 import { Carousel } from "@/components/Carousel/Carousel";
 import PropsTable from "@/components/Personal/PropsTable";
+import ComponentDemo from "../ComponentsDemo";
 
 const CarouselPage = () => {
   return (
@@ -12,17 +13,31 @@ const CarouselPage = () => {
         </p>
       </header>
 
-      <Carousel autoPlay autoPlayInterval={3000}>
-        <div className="p-20 bg-gray-200 text-center text-gray-900">
-          Slide 1
+      <ComponentDemo
+        code={`
+            import { Carousel } from "@/components/Carousel/Carousel";
+            
+            <Carousel autoPlay autoPlayInterval={3000}>
+            <div>Slide 1</div>
+            <div>Slide 2</div>
+            <div>Slide 3</div>
+            </Carousel>
+            `}
+      >
+        <div className="w-full max-w-2xl">
+          <Carousel autoPlay autoPlayInterval={3000}>
+            <div className="p-20 bg-gray-200 text-center text-gray-900">
+              Slide 1
+            </div>
+            <div className="p-20 bg-gray-300 text-center text-gray-900">
+              Slide 2
+            </div>
+            <div className="p-20 bg-gray-400 text-center text-gray-900">
+              Slide 3
+            </div>
+          </Carousel>
         </div>
-        <div className="p-20 bg-gray-300 text-center text-gray-900">
-          Slide 2
-        </div>
-        <div className="p-20 bg-gray-400 text-center text-gray-900">
-          Slide 3
-        </div>
-      </Carousel>
+      </ComponentDemo>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">API Reference</h2>
