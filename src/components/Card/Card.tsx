@@ -10,18 +10,12 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        light: "bg-white text-gray-800 shadow-lg hover:shadow-xl",
-        dark: "bg-slate-800 text-white shadow-md hover:shadow-lg",
+        light: "bg-[var(--surface-strong)] text-[var(--text-color)] shadow-lg hover:shadow-xl border border-[var(--border-color)]",
+        dark: "bg-slate-900 text-white shadow-md hover:shadow-lg border border-slate-700",
         outline:
-          "border border-gray-300 bg-transparent text-gray-800 dark:border-gray-700",
+          "border border-[var(--border-color)] bg-transparent text-[var(--text-color)]",
       },
-      // hoverEffect: {
-      //   none: "",
-      //   scale: "hover:scale-[1.02]",
-      //   shadow: "hover:shadow-xl",
-      //   lift: "hover:-translate-y-1 hover:shadow-xl",
-      //   rotate: "hover:rotate-1",
-      // },
+
       size: {
         sm: "p-3 text-sm",
         md: "p-6 text-base",
@@ -151,7 +145,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         )}
 
         {description && (
-          <p className="text-gray-500 mb-4">{description}</p>
+          <p className="mb-4 text-(--muted-text)">{description}</p>
         )}
 
         {children}

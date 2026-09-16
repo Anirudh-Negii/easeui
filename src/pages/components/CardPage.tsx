@@ -154,18 +154,18 @@ const CardPage = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-4 space-y-12">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Card</h1>
-        <p className="text-xl text-gray-600">
+    <div className="mx-auto max-w-5xl space-y-10 py-4">
+      <div className="space-y-3">
+        <h1 className="text-4xl font-bold tracking-tight text-(--text-color)">Card</h1>
+        <p className="max-w-2xl text-lg text-(--muted-text)">
           The Card component is a container for grouping content with a border
           and padding.
         </p>
       </div>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Usage</h2>
-        <div className="flex flex-col gap-20">
+        <h2 className="text-2xl font-semibold text-(--text-color)">Usage</h2>
+        <div className="flex flex-col gap-8">
           <ComponentDemo code={darkCard}>
             <div className="w-100">
               <Card

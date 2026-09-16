@@ -3,8 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/libs/utils";
 
 const inputVariants = cva(
-  "w-full rounded-md focus:outline-none shadow-sm transition-all duration-150 bg-white placeholder:text-gray-400",
-  // w-full bg-transparent border-b border-gray-500 pb-2 pt-6 focus:outline-none transition-all
+  "w-full rounded-xl border bg-[var(--surface-alt)] text-[var(--text-color)] shadow-sm transition-all duration-150 placeholder:text-[var(--muted-text)] focus:outline-none",
   {
     variants: {
       size: {
@@ -14,14 +13,14 @@ const inputVariants = cva(
       },
       tone: {
         default:
-          "border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400",
+          "border-[var(--border-color)] focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200/50",
         error:
           "border-red-400 focus:ring-2 focus:ring-red-400 focus:border-red-400",
         success:
           "border-green-400 focus:ring-2 focus:ring-green-400 focus:border-green-400",
       },
       disabled: {
-        true: "bg-gray-100 text-gray-400 cursor-not-allowed opacity-80",
+        true: "cursor-not-allowed opacity-80 bg-[var(--surface)] text-[var(--muted-text)]",
       },
     },
     defaultVariants: {
@@ -69,7 +68,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="text-sm font-medium text-gray-700"
+            className="text-sm font-medium text-(--muted-strong)"
           >
             {label}
           </label>
@@ -84,7 +83,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {error ? (
           <p className="text-sm text-red-500">{error}</p>
         ) : hint ? (
-          <p className="text-sm text-gray-500">{hint}</p>
+          <p className="text-sm text-(--muted-text)">{hint}</p>
         ) : null}
       </div>
     );

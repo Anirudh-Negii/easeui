@@ -30,7 +30,13 @@ It is structured as both a component showcase and a reusable library foundation.
 - Modal
 - Navbar
 - Tooltip
+- Carousel
+- Layout
 - Additional utility and animation helpers
+
+## Showcase
+
+A dedicated showcase page demonstrates how the components can be combined and used to build a complete interface, giving a practical view of how they look and work together.
 
 ## Tech Stack
 
@@ -56,6 +62,8 @@ src/
 │   ├── navbar/
 │   ├── Personal/
 │   └── Tooltip/
+│   └── Carousel/
+│   └── Layout/
 ├── features/
 ├── layouts/
 ├── pages/
@@ -108,6 +116,6 @@ npm run preview
 ```
 Serves the built app locally for preview.
 
-## Notes
+## Note
 
 This project is currently set up as a library-style UI toolkit with a preview/demo application for testing component behavior and design consistency.

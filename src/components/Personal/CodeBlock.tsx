@@ -16,19 +16,21 @@ const CodeBlock = ({ code, language = "tsx" }: CodeBlockProps) => {
   };
 
   return (
-    <div className="relative">
-      <div className="flex items-center justify-between bg-gray-900 text-gray-100 px-4 py-2 rounded-t-md">
-        <span className="text-xs font-mono uppercase">{language}</span>
+    <div className="relative overflow-hidden rounded-b-2xl">
+      <div className="flex items-center justify-between bg-slate-900 px-4 py-2 text-slate-100">
+        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-300">
+          {language}
+        </span>
         <button
           onClick={copyToClipboard}
-          className="flex items-center gap-2 px-2 py-1 text-xs bg-gray-800 hover:bg-gray-700 rounded transition-colors"
+          className="flex items-center gap-2 rounded-md border border-slate-700 bg-slate-800 px-2 py-1 text-xs text-slate-100 transition hover:bg-slate-700"
         >
           {copied ? <Check size={14} /> : <Copy size={14} />}
           {copied ? "Copied!" : "Copy"}
         </button>
       </div>
-      <pre className="bg-gray-50 border border-t-0 border-gray-200 p-4 rounded-b-md overflow-x-auto">
-        <code className="text-sm text-gray-800">{code}</code>
+      <pre className="overflow-x-auto bg-slate-950 p-4 text-sm leading-6 text-slate-200">
+        <code>{code}</code>
       </pre>
     </div>
   );

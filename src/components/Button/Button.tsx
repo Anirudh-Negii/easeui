@@ -26,10 +26,10 @@ const buttonVariants = cva(
         secondary: "bg-indigo-500 hover:bg-indigo-700 text-white",
         destructive: "bg-red-700 text-white hover:bg-red-900",
         ok: "bg-green-500 hover:bg-green-700",
-        ghost: "bg-gray-50 hover:bg-gray-100 text-gray-700",
+        ghost: "bg-[var(--surface-alt)] hover:bg-[var(--surface)] text-[var(--text-color)] border border-[var(--border-color)]",
         link: "bg-transparent hover:bg-transparent text-indigo-600",
         outline:
-          "bg-transparent hover:bg-gray-100 text-gray-700 border border-gray-300",
+          "bg-transparent hover:bg-[var(--accent-soft)] text-[var(--text-color)] border border-[var(--border-color)]",
       },
       size: {
         default: "px-9 py-3",

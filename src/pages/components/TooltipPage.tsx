@@ -26,23 +26,20 @@ const TooltipPage = () => {
   `;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-12">
-      <header className="space-y-2">
-        <p
-          className="text-4xl font-bold tracking-tight"
-          style={{ color: "var(--text-color)" }}
-        >
+    <div className="mx-auto max-w-5xl space-y-10 py-4">
+      <header className="space-y-3">
+        <p className="text-4xl font-bold tracking-tight text-(--text-color)">
           Tooltip
         </p>
 
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-(--muted-text)">
           Displays additional information when hovering or focusing on an
           element.
         </p>
       </header>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Usage</h2>
+        <h2 className="text-2xl font-semibold text-(--text-color)">Usage</h2>
 
         <ComponentDemo code={basicUsageCode}>
           <div className="flex items-center justify-center gap-12 flex-wrap">

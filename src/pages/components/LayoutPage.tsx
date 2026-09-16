@@ -4,10 +4,10 @@ import PropsTable from "@/components/Personal/PropsTable";
 
 const LayoutPage = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <header className="space-y-2 mb-8">
-        <h1 className="text-4xl font-bold">Layout</h1>
-        <p className="text-lg text-gray-600">
+    <div className="mx-auto max-w-5xl space-y-10 py-4">
+      <header className="mb-8 space-y-3">
+        <h1 className="text-4xl font-bold text-(--text-color)">Layout</h1>
+        <p className="text-lg text-(--muted-text)">
           Provides a consistent container for organizing and spacing page
           content.
         </p>
@@ -23,14 +23,14 @@ const LayoutPage = () => {
         `}
       >
         <Layout>
-          <div className="p-6 bg-gray-200 text-center">
+          <div className="rounded-2xl border border-(--border-color) bg-(--surface-alt) p-6 text-center text-(--text-color)">
             Content inside the Layout
           </div>
         </Layout>
       </ComponentDemo>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold mt-2">API Reference</h2>
+        <h2 className="mt-2 text-2xl font-semibold text-(--text-color)">API Reference</h2>
 
         <PropsTable
           data={[

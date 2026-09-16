@@ -91,7 +91,7 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
         <div className="flex gap-5">
           <a href="">Home</a>
           <a href="">About</a>
-          <a href="">Customer</a>
+          <a href="">Component</a>
         </div>
         <div>
           <Button hoverAnimation="none">Profile</Button>

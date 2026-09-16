@@ -12,22 +12,26 @@ const ComponentDemo = ({ children, code }: ComponentDemoProps) => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-gray-200">
-      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 bg-gray-50">
-        <span className="text-sm font-medium text-gray-700">Preview</span>
+    <div className="overflow-hidden rounded-2xl border border-(--border-color) bg-(--surface) shadow-(--shadow-soft)">
+      <div className="flex items-center justify-between border-b border-(--border-color) bg-(--surface-alt) px-4 py-3">
+        <span className="text-sm font-medium text-(--muted-strong)">
+          Preview
+        </span>
         <button
           onClick={() => setIsCodeVisible(!isCodeVisible)}
-          className="flex items-center gap-1 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded transition-colors cursor-pointer"
+          className="flex cursor-pointer items-center gap-2 rounded-lg border border-(--border-color) bg-(--surface-strong) px-3 py-1.5 text-sm font-medium text-(--text-color) transition hover:border-indigo-300 hover:text-indigo-600"
         >
           <Code size={14} />
           {isCodeVisible ? "Hide Code" : "View Code"}
         </button>
       </div>
 
-      <div className="py-20 px-4 flex items-center justify-center">{children}</div>
+      <div className="flex min-h-52 items-center justify-center px-4 py-10">
+        {children}
+      </div>
 
       {isCodeVisible && (
-        <div className="border-t border-gray-200">
+        <div className="border-t border-(--border-color)">
           <CodeBlock code={code} />
         </div>
       )}

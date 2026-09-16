@@ -10,20 +10,24 @@ const NavbarPage = () => {
   `;
 
   return (
-    <div>
-      <header className="space-y-2 mb-8">
-        <h1 className="text-4xl font-bold">Navbar</h1>
-        <p className="text-lg text-gray-600">
+    <div className="mx-auto max-w-5xl space-y-10 py-4">
+      <header className="mb-8 space-y-3">
+        <h1 className="text-4xl font-bold text-(--text-color)">Navbar</h1>
+        <p className="text-lg text-(--muted-text)">
           Provides a navigation bar for organizing links and actions.
         </p>
       </header>
 
       <ComponentDemo code={usageCode}>
-        <Navbar />
+        <div className="w-full max-w-3xl">
+          <Navbar />
+        </div>
       </ComponentDemo>
 
-      <section className="space-y-4 mt-2">
-        <h2 className="text-2xl font-semibold">API Reference</h2>
+      <section className="mt-2 space-y-4">
+        <h2 className="text-2xl font-semibold text-(--text-color)">
+          API Reference
+        </h2>
 
         <PropsTable
           data={[
@@ -47,13 +51,13 @@ const NavbarPage = () => {
             },
             {
               prop: "animation",
-              type: 'keyof typeof entranceAnimations',
+              type: "keyof typeof entranceAnimations",
               default: '"fadeIn"',
               description: "Entrance animation applied to the navbar",
             },
             {
               prop: "hoverAnimation",
-              type: 'keyof typeof hoverAnimations',
+              type: "keyof typeof hoverAnimations",
               default: '"none"',
               description: "Hover animation applied to the navbar",
             },

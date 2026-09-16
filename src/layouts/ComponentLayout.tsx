@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 type Props = {};
 
 const ComponentLayout = ({}: Props) => {
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -22,44 +21,63 @@ const ComponentLayout = ({}: Props) => {
   ];
 
   return (
-    <div className="flex min-h-screen text-gray-900">
+    <div className="flex min-h-screen text-(--text-color)">
       <aside
         className={`
-          w-64 p-6 flex flex-col
-          border-r border-gray-200
-          fixed md:static top-0 left-0 h-full z-20
-          transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
-          transition-transform duration-300 ease-in-out
-          md:translate-x-0
+          fixed left-0 top-0 z-30 flex h-full w-72 flex-col border-r border-(--border-color) bg-(--surface-strong) p-5 shadow-sm transition-transform duration-300 ease-in-out md:static md:translate-x-0
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
-        <h2 className="text-md font-bold mb-6">Components</h2>
-        <ul className="flex flex-col gap-2">
-          {components.map((item) => (
-            <li
-              onClick={() => navigate(item.toLowerCase())}
-              key={item}
-              className={`cursor-pointer hover:text-black text-md hover:translate-x-1 transition-all duration-200 ease-in-out ${
-                location.pathname === `/components/${item.toLowerCase()}`
-                  ? "text-black"
-                  : "text-gray-400"
-              }`}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+        <div className="mb-6 flex items-center justify-between md:justify-start">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-(--muted-text)">
+            Components
+          </h2>
+          <button
+            className="rounded-lg p-2 text-(--muted-text) hover:bg-(--surface-alt) md:hidden"
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Close sidebar"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <nav className="space-y-1.5">
+          {components.map((item) => {
+            const itemPath = `/components/${item.toLowerCase()}`;
+            const active = location.pathname === itemPath;
+
+            return (
+              <button
+                onClick={() => {
+                  navigate(item.toLowerCase());
+                  setSidebarOpen(false);
+                }}
+                key={item}
+                className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
+                  active
+                    ? "bg-(--accent-soft) text-indigo-600 dark:text-indigo-300"
+                    : "text-(--muted-text) hover:bg-(--surface-alt) hover:text-(--text-color)"
+                }`}
+              >
+                <span>{item}</span>
+              </button>
+            );
+          })}
+        </nav>
       </aside>
 
-      <div className="flex-1 ml-10 overflow-auto h-screen p-6">
+      <div className="flex-1 overflow-auto px-4 py-4 sm:px-6 lg:px-8">
         <button
-          className="md:hidden mb-4 text-gray-700"
+          className="mb-4 inline-flex items-center gap-2 rounded-xl border border-(--border-color) bg-(--surface-strong) px-3 py-2 text-sm font-medium text-(--text-color) md:hidden"
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
-          <Menu size={24} />
+          <Menu size={18} />
+          Menu
         </button>
 
-        <Outlet />
+        <div className="mx-auto max-w-5xl">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

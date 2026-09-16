@@ -11,6 +11,7 @@ import TooltipPage from "@/pages/components/TooltipPage";
 import CarouselPage from "@/pages/components/CarouselPage";
 import LayoutPage from "@/pages/components/LayoutPage";
 import ShowcasePage from "@/pages/ShowcasePage";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 type Props = {};
 
@@ -67,6 +68,10 @@ const AppRouter = ({}: Props) => {
     {
       path: "showcase",
       element: <ShowcasePage />,
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
     },
   ]);
 

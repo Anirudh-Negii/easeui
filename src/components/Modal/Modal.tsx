@@ -9,10 +9,10 @@ const modalVariants = cva(
     variants: {
       variant: {
         light:
-          "bg-white text-gray-900 shadow-2xl border border-gray-200 hover:shadow-xl",
+          "bg-[var(--surface-strong)] text-[var(--text-color)] shadow-2xl border border-[var(--border-color)] hover:shadow-xl",
         dark: "bg-slate-900 text-white shadow-lg border border-slate-700 hover:shadow-xl",
         outline:
-          "bg-transparent border border-gray-400 text-gray-800 dark:border-gray-600 dark:text-gray-100 backdrop-blur-md",
+          "bg-[var(--surface)] border border-[var(--border-color)] text-[var(--text-color)] backdrop-blur-md",
       },
       size: {
         sm: "w-[90%] max-w-sm p-4",
@@ -81,13 +81,13 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         >
           <div>
             {title && (
-              <h3 className="text-xl font-semibold mb-2 text-[inherit]">
+              <h3 className="text-xl font-semibold mb-2 text-inherit">
                 {title}
               </h3>
             )}
 
             {description && (
-              <p className="text-gray-600 dark:text-gray-300 mb-4 text-[inherit]">
+              <p className="mb-4 text-inherit">
                 {description}
               </p>
             )}
@@ -101,7 +101,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                   "px-4 py-2 rounded-md font-medium transition",
                   variant === "dark"
                     ? "border border-slate-600 hover:bg-slate-700"
-                    : "border border-gray-300 hover:bg-gray-100"
+                    : "border border-(--border-color) hover:bg-(--surface-alt)"
                 )}
               >
                 {closeText}
