@@ -1,5 +1,6 @@
 import { Layout } from "@/components/Layout/Layout";
 import ComponentDemo from "../ComponentsDemo";
+import PropsTable from "@/components/Personal/PropsTable";
 
 const LayoutPage = () => {
   return (
@@ -27,6 +28,27 @@ const LayoutPage = () => {
           </div>
         </Layout>
       </ComponentDemo>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold mt-2">API Reference</h2>
+
+        <PropsTable
+          data={[
+            {
+              prop: "children",
+              type: "React.ReactNode",
+              default: "—",
+              description: "Content displayed inside the layout",
+            },
+            {
+              prop: "className",
+              type: "string",
+              default: "—",
+              description: "Additional CSS classes for the layout",
+            },
+          ]}
+        />
+      </section>
     </div>
   );
 };
